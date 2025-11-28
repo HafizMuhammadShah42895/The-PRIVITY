@@ -94,7 +94,6 @@ body::before {
   background-image:
     radial-gradient(circle at 20% 50%, rgba(212, 175, 55, 0.05) 0%, transparent 50%),
     radial-gradient(circle at 80% 80%, rgba(212, 175, 55, 0.05) 0%, transparent 50%);
-  pointer-events: none;
   z-index: -1;
 }
 
@@ -338,6 +337,14 @@ a:hover {
 
 .hero-buttons {
   animation: fadeInUp 1s ease 0.4s backwards;
+  display: flex;
+  gap: 1rem;
+}
+
+@media (min-width: 768px) {
+  .hero-buttons {
+    gap: 1.5rem;
+  }
 }
 
 @keyframes fadeInUp {
@@ -394,6 +401,41 @@ section {
 .bg-dark-glass {
   background: var(--glass-bg);
   backdrop-filter: blur(10px);
+}
+
+/* ===================================
+   PAGE HEADER
+   =================================== */
+.page-header {
+  padding: 8rem 0 4rem;
+  background: var(--gradient-primary);
+  text-align: center;
+  position: relative;
+}
+
+.page-header h1 {
+  color: var(--accent-gold);
+  margin-bottom: 1rem;
+}
+
+.breadcrumb {
+  background: transparent;
+  padding: 0;
+  margin: 0;
+  justify-content: center;
+}
+
+.breadcrumb-item a {
+  color: var(--text-secondary);
+  text-decoration: none;
+}
+
+.breadcrumb-item.active {
+  color: var(--accent-gold);
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  color: var(--text-muted);
 }
 
 /* ===================================
@@ -472,6 +514,13 @@ section {
   text-decoration: none;
   color: var(--text-primary);
   height: 100%;
+  pointer-events: auto !important;
+  position: relative;
+  z-index: 10;
+}
+
+.contact-platform-card {
+  cursor: pointer !important;
 }
 
 .contact-platform-card:hover {
@@ -932,8 +981,14 @@ footer {
     .hero-buttons {
       display: flex;
       flex-direction: column;
-      gap: 1rem;
-      padding: 0 2rem;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .hero-buttons .btn {
+      width: 100%;
+      max-width: 280px;
+      margin: 0 !important;
     }
 
 
